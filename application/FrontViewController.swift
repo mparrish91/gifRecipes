@@ -6,10 +6,11 @@
 //  Copyright © 2015年 sonson. All rights reserved.
 //
 
+import GoogleMobileAds
 import reddift
 import UIKit
 
-class FrontViewController: UITableViewController, UIViewControllerPreviewingDelegate, UITextFieldDelegate, UIViewControllerTransitioningDelegate, ImageViewAnimator {
+class FrontViewController: UIViewController, UIViewControllerPreviewingDelegate, UITextFieldDelegate, UIViewControllerTransitioningDelegate, ImageViewAnimator, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var titleTextField: UITextField?
     var searchController = SearchController(style: .plain)
     var cellar: LinkContainerCellar = LinkContainerCellar()
@@ -18,7 +19,8 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     var refresh = UIRefreshControl()
     
     var searchControllerViewBottomSpaceConstraint: NSLayoutConstraint?
-    
+    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var tableView: UITableView!
     
     func targetImageView(thumbnail: Thumbnail) -> UIImageView? {
         let imageIncludingCells = self.tableView.visibleCells.flatMap({$0 as? ImageViewAnimator})
@@ -292,6 +294,14 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         super.viewDidLoad()
         
         printFonts()
+        
+        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+        //    bannerView.adUnitID = "ca-app-pub-8566181111069817/1103782288"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
         
         //Nav Bar
         let navString = "gifrecipes +"

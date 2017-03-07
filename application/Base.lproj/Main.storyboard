@@ -108,21 +108,16 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BLp-gA-Avj">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="account" id="yJg-xj-FTT">
-                            <connections>
-                                <segue destination="Kr2-ce-ePv" kind="presentation" id="dio-H4-Osi"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="account" id="yJg-xj-FTT"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="leftAccountButton" destination="yJg-xj-FTT" id="0GX-DD-KWs"/>
-                        <segue destination="0Uq-2t-FbB" kind="show" identifier="OpenComment" id="gc4-zB-ZSs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZT-sK-m4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="491" y="-230"/>
+            <point key="canvasLocation" x="2369" y="-180"/>
         </scene>
         <!--SubredditSelectViewController-->
         <scene sceneID="81v-lA-OuU">
@@ -164,13 +159,68 @@
             </objects>
             <point key="canvasLocation" x="1261" y="-230"/>
         </scene>
+        <!--Front View Controller-->
+        <scene sceneID="FuP-dP-wB7">
+            <objects>
+                <viewController id="c2k-ak-eKQ" customClass="FrontViewController" customModule="application" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EFR-oN-Z0m"/>
+                        <viewControllerLayoutGuide type="bottom" id="LSs-rj-Vjp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IIQ-hZ-XED">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-gi-BCq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="c2k-ak-eKQ" id="jxa-ER-Jgc"/>
+                                    <outlet property="delegate" destination="c2k-ak-eKQ" id="6PL-Q2-0IG"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bb3-qH-xiF" customClass="GADBannerView">
+                                <rect key="frame" x="27" y="617" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="9u3-4S-GqR"/>
+                                    <constraint firstAttribute="height" constant="50" id="ToO-lY-KeC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Gz-gi-BCq" firstAttribute="leading" secondItem="IIQ-hZ-XED" secondAttribute="leading" id="2dP-Fv-bL5"/>
+                            <constraint firstItem="bb3-qH-xiF" firstAttribute="centerX" secondItem="IIQ-hZ-XED" secondAttribute="centerX" id="4EP-ur-iYl"/>
+                            <constraint firstItem="4Gz-gi-BCq" firstAttribute="top" secondItem="IIQ-hZ-XED" secondAttribute="top" id="8sN-mn-jEp"/>
+                            <constraint firstAttribute="trailing" secondItem="4Gz-gi-BCq" secondAttribute="trailing" id="9bV-Wa-cax"/>
+                            <constraint firstItem="LSs-rj-Vjp" firstAttribute="top" secondItem="4Gz-gi-BCq" secondAttribute="bottom" id="Rou-WI-dHN"/>
+                            <constraint firstItem="LSs-rj-Vjp" firstAttribute="top" secondItem="bb3-qH-xiF" secondAttribute="bottom" id="e5m-Xg-kWN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yT9-wC-SBl">
+                        <barButtonItem key="leftBarButtonItem" image="account" id="qWH-Ka-7Gx">
+                            <connections>
+                                <segue destination="Kr2-ce-ePv" kind="presentation" id="DcN-3C-KXR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bannerView" destination="bb3-qH-xiF" id="04t-GV-gc6"/>
+                        <outlet property="tableView" destination="4Gz-gi-BCq" id="uA1-zJ-Bzc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JeJ-oF-Dvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="488.80000000000001" y="-231.63418290854574"/>
+        </scene>
         <!--Item-->
         <scene sceneID="yYe-AZ-hop">
             <objects>
                 <navigationController id="zUy-Zq-7XP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Dsm-Wu-mZB"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N3i-cH-aKo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="N3i-cH-aKo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -179,7 +229,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="348-pW-D4o" kind="relationship" relationship="rootViewController" id="4Em-06-17p"/>
+                        <segue destination="c2k-ak-eKQ" kind="relationship" relationship="rootViewController" id="sbR-g8-HMa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0l-YK-z4i" userLabel="First Responder" sceneMemberID="firstResponder"/>

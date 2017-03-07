@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 sonson. All rights reserved.
 //
 
+import GoogleMobileAds
 import reddift
 import UIKit
 
@@ -90,6 +91,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ImageCache {
         UINavigationBar.appearance().barTintColor = UIColor.white
         UINavigationBar.appearance().tintColor = UIColor(netHex: 0x4A4A4A)
 
+        // Initialize Google Mobile Ads SDK
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511")
+    
         
         DispatchQueue.global(qos: .default).async {
             let html = ""
