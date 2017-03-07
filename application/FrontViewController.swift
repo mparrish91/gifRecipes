@@ -340,7 +340,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         cellar = SubredditCellar(subreddit: "GifRecipes", width: self.view.frame.size.width, fontSize: 16)
         self.tableView.reloadData()
         cellar.load(atTheBeginning: true)
-        
+//
         registerForPreviewing(with: self, sourceView: self.view)
         
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.keyboardWillChangeFrame(notification:)), name: .UIKeyboardDidShow, object: nil)

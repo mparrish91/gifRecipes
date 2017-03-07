@@ -101,8 +101,10 @@ class MediaLinkContainer: LinkContainer {
     init(link: Link, width: CGFloat, fontSize: CGFloat = 18, thumbnails: [Thumbnail]) {
         super.init(with: link, width: width, fontSize: fontSize)
         self.thumbnails = thumbnails
-        let font = UIFont(name: UIFont.systemFont(ofSize: fontSize).fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        attributedTitle = NSAttributedString(string: link.title).reconstruct(with: font, color: UIColor.black, linkColor: UIColor.blue)
+        
+        let font =  UIFont(name:"Avenir-Light", size:fontSize)
+        attributedTitle = NSAttributedString(string: link.title).reconstruct(with: font!, color: UIColor(netHex: 0x4A4A4A), linkColor: UIColor.blue)
+
         titleSize = ThumbnailLinkCell.estimateTitleSize(attributedString: attributedTitle, withBountWidth: width, margin: .zero)
         pageLoaded = true
         

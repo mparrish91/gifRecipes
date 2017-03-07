@@ -105,10 +105,7 @@
                             <outlet property="delegate" destination="348-pW-D4o" id="DRJ-H6-b5f"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="zEg-eS-nFg"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="gUD-LW-WXo"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="BLp-gA-Avj">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="account" id="yJg-xj-FTT">
@@ -117,6 +114,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="leftAccountButton" destination="yJg-xj-FTT" id="0GX-DD-KWs"/>
                         <segue destination="0Uq-2t-FbB" kind="show" identifier="OpenComment" id="gc4-zB-ZSs"/>
@@ -169,10 +167,10 @@
         <!--Item-->
         <scene sceneID="yYe-AZ-hop">
             <objects>
-                <navigationController toolbarHidden="NO" id="zUy-Zq-7XP" sceneMemberID="viewController">
+                <navigationController id="zUy-Zq-7XP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Dsm-Wu-mZB"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="N3i-cH-aKo">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N3i-cH-aKo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

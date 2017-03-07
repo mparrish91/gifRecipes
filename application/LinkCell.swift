@@ -133,7 +133,7 @@ class LinkCell: UITableViewCell {
     var container: LinkContainable? = nil {
         didSet {
             if let container = container as? LinkContainer {
-                titleTextView.attributedString = container.attributedTitle
+//                titleTextView.attributedString = container.attributedTitle
                 contentInfoView.setNameText(name: container.link.author)
                 contentInfoView.setDateText(created: container.link.createdUtc)
                 contentInfoView.setDomainText(domain: container.link.domain)

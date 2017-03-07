@@ -90,6 +90,8 @@ class LinkContainable: ThingContainable, ImageDownloadable {
     static func createContainer(with link: Link, width: CGFloat, fontSize: CGFloat = 14) -> LinkContainable {
         guard let url = URL(string: link.url) else { return LinkContainer(with: link, width: width, fontSize: fontSize) }
         
+        let font =  UIFont(name:"Avenir-Light", size:fontSize)
+        
         // simple image URL
         if let _ = regexForImageURL.firstMatch(in: link.url as String, options: [], range:NSRange(location:0, length:(link.url as NSString).length)) {
             if let imageURL = URL(string: link.url) {
