@@ -72,16 +72,16 @@ class LinkContainable: ThingContainable, ImageDownloadable {
     
     func layout(with width: CGFloat, fontSize: CGFloat) {
         self.width = width
-        let font = UIFont(name: UIFont.systemFont(ofSize: fontSize).fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        attributedTitle = NSAttributedString(string: link.title).reconstruct(with: font, color: UIColor.black, linkColor: UIColor.blue)
+        let font =  UIFont(name:"Avenir-Light", size:fontSize)
+        attributedTitle = NSAttributedString(string: link.title).reconstruct(with: font!, color: UIColor(netHex: 0x4A4A4A), linkColor: UIColor.blue)
         titleSize = LinkCell.estimateTitleSize(attributedString: attributedTitle, withBountWidth: width, margin: .zero)
     }
     
     init(with link: Link, width: CGFloat, fontSize: CGFloat = 18) {
         self.intrinsicLink = link
         self.width = width
-        let font = UIFont(name: UIFont.systemFont(ofSize: fontSize).fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        attributedTitle = NSAttributedString(string: link.title).reconstruct(with: font, color: UIColor.black, linkColor: UIColor.blue)
+        let font =  UIFont(name:"Avenir-Light", size:fontSize)
+        attributedTitle = NSAttributedString(string: link.title).reconstruct(with: font!, color: UIColor(netHex: 0x4A4A4A), linkColor: UIColor.blue)
         titleSize = LinkCell.estimateTitleSize(attributedString: attributedTitle, withBountWidth: width, margin: .zero)
         pageLoaded = true
         super.init(with: link)

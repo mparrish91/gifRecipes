@@ -32,7 +32,7 @@ class LinkCell: UITableViewCell {
     }
     
     class func estimateHeight(titleHeight: CGFloat) -> CGFloat {
-        return ThumbnailLinkCell.verticalTopMargin + titleHeight + ThumbnailLinkCell.verticalBotttomMargin + ContentInfoView.height + ContentToolbar.height
+        return ThumbnailLinkCell.verticalTopMargin + titleHeight + ThumbnailLinkCell.verticalBotttomMargin + ContentInfoView.height
     }
     
     // MARK: - Support 3D touch
@@ -166,7 +166,9 @@ class LinkCell: UITableViewCell {
         
         self.contentView.addSubview(titleTextView)
         self.contentView.addSubview(contentInfoView)
+        self.contentInfoView.isHidden = true
         self.contentView.addSubview(contentToolbar)
+        self.contentToolbar.isHidden = true
         self.contentView.addSubview(titleTextView)
     }
     

@@ -40,7 +40,7 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
     
     class func estimateHeight(titleHeight: CGFloat, numberOfThumbnails: Int) -> CGFloat {
         let thumbnailAreaHeight = ImageLinkThumbnailView.estimateHeight(numberOfThumbnails: numberOfThumbnails)
-        return ThumbnailLinkCell.verticalTopMargin + ThumbnailLinkCell.verticalBotttomMargin + ContentInfoView.height + ContentToolbar.height + thumbnailAreaHeight + ceil(titleHeight)
+        return ThumbnailLinkCell.verticalTopMargin + ThumbnailLinkCell.verticalBotttomMargin + thumbnailAreaHeight + ceil(titleHeight)
     }
     
     // MARK: - Override
@@ -132,7 +132,11 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
         self.thumbnailView?.backgroundColor = UIColor.clear
         self.contentView.addSubview(titleTextView)
         self.contentView.addSubview(contentInfoView)
+        self.contentInfoView.isHidden = true
+
         self.contentView.addSubview(contentToolbar)
+        self.contentToolbar.isHidden = true
+
         titleTextView.backgroundColor = UIColor.clear
         titleTextView.isUserInteractionEnabled = false
         
@@ -204,7 +208,7 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
         self.contentView.addConstraint(NSLayoutConstraint(item: contentInfoView, attribute: .bottom, relatedBy: .equal, toItem: contentToolbar, attribute: .top, multiplier: 1, constant: 0))
         
         // [contentToolbar(==constraintInfoViewAndToolbar)]
-        contentToolbar.addConstraint(NSLayoutConstraint(item: contentToolbar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: ContentToolbar.height))
+        contentToolbar.addConstraint(NSLayoutConstraint(item: contentToolbar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: ContentToolbar.height))
         
         // Comment out to avoid autolayout errors.
         // [contentToolbar]-0-|

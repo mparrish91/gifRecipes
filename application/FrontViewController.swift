@@ -19,26 +19,6 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     
     var searchControllerViewBottomSpaceConstraint: NSLayoutConstraint?
     
-//    func hideThumbnail(thumbnail: Thumbnail?) {
-//        let imageIncludingCells = self.tableView.visibleCells.flatMap({$0 as? ImageViewAnimator})
-//        if let thumbnail = thumbnail {
-//            for i in 0..<imageIncludingCells.count {
-//                if let imageView = imageIncludingCells[i].targetImageView(thumbnail: thumbnail) {
-//                    imageView.isHidden = true
-//                } else {
-//                    imageView.isHidden = false
-//                }
-//            }
-//        } else {
-//            for i in 0..<imageIncludingCells.count {
-//                if let imageView = imageIncludingCells[i].targetImageView(thumbnail: thumbnail) {
-//                    imageView.isHidden = true
-//                } else {
-//                    imageView.isHidden = false
-//                }
-//            }
-//        }
-//    }
     
     func targetImageView(thumbnail: Thumbnail) -> UIImageView? {
         let imageIncludingCells = self.tableView.visibleCells.flatMap({$0 as? ImageViewAnimator})
@@ -123,12 +103,12 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         }
     }
     
-    func didTapNameNotification(notification: Notification) {
-        if let userInfo = notification.userInfo, let name = userInfo["name"] as? String {
-            let controller = UserViewController.controller(name)
-            self.present(controller, animated: true, completion: nil)
-        }
-    }
+//    func didTapNameNotification(notification: Notification) {
+//        if let userInfo = notification.userInfo, let name = userInfo["name"] as? String {
+//            let controller = UserViewController.controller(name)
+//            self.present(controller, animated: true, completion: nil)
+//        }
+//    }
     
     func didTapTitleNotification(notification: Notification) {
         if let userInfo = notification.userInfo, let link = userInfo["link"] as? Link, let url = URL(string: link.url) {
@@ -179,39 +159,14 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         }
     }
     
-    @IBAction func openTab(sender: AnyObject) {
-//        let rect = self.view.frame
-//        
-//        self.navigationController?.navigationBar.alpha = 0
-//        self.navigationController?.toolbar.alpha = 0
-//        self.tableView.showsVerticalScrollIndicator = false
-//        UIGraphicsBeginImageContextWithOptions(CGSize(width:rect.size.width, height:rect.size.height), false, 0.0)
-//        let context = UIGraphicsGetCurrentContext()
-//        context!.translate(x: 0.0, y: 0.0)
-//        self.navigationController?.view.layer.render(in: context!)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        TabManager.sharedInstance.setScreenshot(image: image!)
-//        UIGraphicsEndImageContext()
-//        
-//        self.navigationController?.navigationBar.alpha = 1
-//        self.navigationController?.toolbar.alpha = 1
-//        self.tableView.showsVerticalScrollIndicator = true
-//        
-//        let nav = TabSelectViewController.sharedNavigationController
-//        if let vc = nav.topViewController as? TabSelectViewController {
-//            vc.startAnimationWhenWillAppearWithSnapshotView(view: self.navigationController!.view.snapshotView(afterScreenUpdates: true)!)
-//        }
-//        self.present(nav, animated: false, completion: { () -> Void in
-//            if let vc = nav.topViewController as? TabSelectViewController {
-//                vc.startAnimationWhenDidAppear()
-//            }
-//        })
-    }
+
     
     // MARK: - Notification
     
     func openSubreddit(notification: NSNotification) {
-        if let userInfo = notification.userInfo, let subreddit = userInfo[SearchController.subredditKey] as? String {
+        
+        let subreddit = "GifRecipes"
+        if let userInfo = notification.userInfo {
             cellar = SubredditCellar(subreddit: subreddit, width: self.view.frame.size.width, fontSize: 18)
             self.tableView.reloadData()
             cellar.load(atTheBeginning: true)
@@ -323,12 +278,31 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNames(forFamilyName: familyName as! String)
+            print("Font Names = [\(names)]")
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        printFonts()
+        
+        //Nav Bar
+        let navString = "gifrecipes+"
+        let navLabel = UILabel()
+        navLabel.textColor = UIColor(netHex: 0x4A4A4A)
+        navLabel.attributedText = returnNavTitleString(stringValue: navString)
+        navLabel.sizeToFit()
+        self.navigationItem.titleView = navLabel
+        navLabel.textAlignment = NSTextAlignment.center
+
+        
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.openSubreddit(notification:)), name: SearchControllerDidOpenSubredditName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.searchSubreddit(notification:)), name: SearchControllerDidSearchSubredditName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.openSubreddit(notification:)), name: SubredditSelectTabBarControllerDidOpenSubredditName, object: nil)
@@ -340,7 +314,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.didTapActionNotification(notification:)), name: LinkCellDidTapActionNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.didTapCommentNotification(notification:)), name: LinkCellDidTapCommentNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.didTapNameNotification(notification:)), name: LinkCellDidTapNameNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.didTapNameNotification(notification:)), name: LinkCellDidTapNameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.didTapTitleNotification(notification:)), name: LinkCellDidTapTitleNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.didTapThumbnailNotification(notification:)), name: LinkCellDidTapThumbnailNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.didUpdateLinkContainable(notification:)), name: ThingContainableDidUpdate, object: nil)
@@ -363,7 +337,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         tableView.addSubview(refresh)
         
 //        cellar = SubredditCellar(subreddit: "movies", width: self.view.frame.size.width, fontSize: 18)
-        cellar = SubredditCellar(subreddit: "test", width: self.view.frame.size.width, fontSize: 18)
+        cellar = SubredditCellar(subreddit: "GifRecipes", width: self.view.frame.size.width, fontSize: 16)
         self.tableView.reloadData()
         cellar.load(atTheBeginning: true)
         
@@ -589,4 +563,27 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         }
     }
     
+    //MARK: Helper function
+    
+    func returnNavTitleString(stringValue: String) -> NSAttributedString {
+        let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 13)!, NSForegroundColorAttributeName: UIColor.black])
+        return newString
+    }
+    
+}
+
+//TODO: handle errors
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
 }

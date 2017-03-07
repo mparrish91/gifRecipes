@@ -105,6 +105,7 @@ class MediaLinkContainer: LinkContainer {
         attributedTitle = NSAttributedString(string: link.title).reconstruct(with: font, color: UIColor.black, linkColor: UIColor.blue)
         titleSize = ThumbnailLinkCell.estimateTitleSize(attributedString: attributedTitle, withBountWidth: width, margin: .zero)
         pageLoaded = true
+        
     }
     
     /// download thumbnail

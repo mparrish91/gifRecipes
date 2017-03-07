@@ -108,16 +108,6 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="zEg-eS-nFg"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="gUD-LW-WXo"/>
-                        <barButtonItem image="compose" style="plain" id="oBC-VJ-igJ">
-                            <connections>
-                                <action selector="composeWithSender:" destination="348-pW-D4o" id="nZs-rH-S4U"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Tab" id="ZjV-nC-BU5">
-                            <connections>
-                                <action selector="openTab:" destination="348-pW-D4o" id="fJl-a4-rhe"/>
-                            </connections>
-                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="BLp-gA-Avj">
                         <nil key="title"/>
@@ -126,25 +116,9 @@
                                 <segue destination="Kr2-ce-ePv" kind="presentation" id="dio-H4-Osi"/>
                             </connections>
                         </barButtonItem>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="/r/hoge" textAlignment="center" minimumFontSize="17" id="7q4-FI-LPs">
-                            <rect key="frame" x="68" y="7" width="240" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
-                            <connections>
-                                <outlet property="delegate" destination="348-pW-D4o" id="1NP-Kc-jt6"/>
-                            </connections>
-                        </textField>
-                        <barButtonItem key="rightBarButtonItem" image="subredditList" id="B36-sk-sOZ">
-                            <connections>
-                                <segue destination="oQK-fe-sEY" kind="presentation" id="3UJ-3J-SKF"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="leftAccountButton" destination="yJg-xj-FTT" id="0GX-DD-KWs"/>
-                        <outlet property="rightListButton" destination="B36-sk-sOZ" id="HW1-hK-BM5"/>
-                        <outlet property="titleTextField" destination="7q4-FI-LPs" id="EOU-iU-pRR"/>
                         <segue destination="0Uq-2t-FbB" kind="show" identifier="OpenComment" id="gc4-zB-ZSs"/>
                     </connections>
                 </tableViewController>
@@ -297,7 +271,5 @@
     </scenes>
     <resources>
         <image name="account" width="22" height="22"/>
-        <image name="compose" width="22" height="22"/>
-        <image name="subredditList" width="20" height="15"/>
     </resources>
 </document>

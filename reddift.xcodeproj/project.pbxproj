@@ -595,6 +595,7 @@
 		14FD7DF61E3C944500F4A7F9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD7DD71E3C944500F4A7F9 /* WebViewController.swift */; };
 		14FD7E0F1E3C97BE00F4A7F9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD7E0D1E3C97BE00F4A7F9 /* LaunchScreen.xib */; };
 		14FD7E121E3C97CF00F4A7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14FD7E101E3C97CF00F4A7F9 /* Main.storyboard */; };
+		4225ED441E5E59C200F1F104 /* Bangla MN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4225ED431E5E59C200F1F104 /* Bangla MN.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -845,6 +846,7 @@
 		14FD7E0E1E3C97BE00F4A7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		14FD7E111E3C97CF00F4A7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14FD7E131E3C981F00F4A7F9 /* application.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = application.entitlements; sourceTree = "<group>"; };
+		4225ED431E5E59C200F1F104 /* Bangla MN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bangla MN.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1187,6 +1189,7 @@
 		147EAD971AD78568007FA2F4 = {
 			isa = PBXGroup;
 			children = (
+				4225ED431E5E59C200F1F104 /* Bangla MN.ttf */,
 				144B5B361E3C8FBA00C88DB9 /* application */,
 				144B56661E3C7CE700C88DB9 /* framework */,
 				14E3BAA61BBA4DA800BDDF29 /* playground */,
@@ -1571,6 +1574,7 @@
 				14FD7DAE1E3C943400F4A7F9 /* MoreCommentCell.xib in Resources */,
 				14FD7DE71E3C944500F4A7F9 /* SubredditSelectViewController.storyboard in Resources */,
 				144B5B3F1E3C8FBA00C88DB9 /* Assets.xcassets in Resources */,
+				4225ED441E5E59C200F1F104 /* Bangla MN.ttf in Resources */,
 				14FD7DB61E3C943400F4A7F9 /* reddift_config.json in Resources */,
 				14FD7E0F1E3C97BE00F4A7F9 /* LaunchScreen.xib in Resources */,
 				14FD7DAC1E3C943400F4A7F9 /* mona.ttf in Resources */,

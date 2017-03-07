@@ -87,6 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ImageCache {
         self.reloadSession()
 //        deleteAllThumbnails()
 //        deleteAllCaches()
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor(netHex: 0x4A4A4A)
+
+        
         DispatchQueue.global(qos: .default).async {
             let html = ""
             do {
