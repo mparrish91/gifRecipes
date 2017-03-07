@@ -294,7 +294,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         printFonts()
         
         //Nav Bar
-        let navString = "gifrecipes+"
+        let navString = "gifrecipes +"
         let navLabel = UILabel()
         navLabel.textColor = UIColor(netHex: 0x4A4A4A)
         navLabel.attributedText = returnNavTitleString(stringValue: navString)
