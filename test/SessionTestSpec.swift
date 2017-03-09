@@ -54,6 +54,7 @@ class SessionTestSpec: XCTestCase {
         Thread.sleep(forTimeInterval: self.testInterval)
     }
     
+    
     /// get token using application only oauth
     func createSession() {
         if let json = self.jsonFromFileName("test_config.json") as? [String:String] {

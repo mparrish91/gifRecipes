@@ -10,6 +10,7 @@ import GoogleMobileAds
 import reddift
 import UIKit
 
+
 class FrontViewController: UIViewController, UIViewControllerPreviewingDelegate, UITextFieldDelegate, UIViewControllerTransitioningDelegate, ImageViewAnimator, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var titleTextField: UITextField?
     var searchController = SearchController(style: .plain)
@@ -137,6 +138,7 @@ class FrontViewController: UIViewController, UIViewControllerPreviewingDelegate,
         print("refreshDidChange")
         refresh.attributedTitle = NSAttributedString(string: cellar.loadingMessage())
         DispatchQueue.main.async {
+            self.openSubreddit()
             self.cellar.load(atTheBeginning: true)
         }
     }
@@ -164,6 +166,16 @@ class FrontViewController: UIViewController, UIViewControllerPreviewingDelegate,
 
     
     // MARK: - Notification
+    
+    func openSubreddit() {
+        
+        let subreddit = "GifRecipes"
+            cellar = SubredditCellar(subreddit: subreddit, width: self.view.frame.size.width, fontSize: 18)
+            self.tableView.reloadData()
+            cellar.load(atTheBeginning: true)
+        refresh.attributedTitle = NSAttributedString(string: cellar.tryLoadingMessage())
+    }
+    
     
     func openSubreddit(notification: NSNotification) {
         
@@ -280,21 +292,49 @@ class FrontViewController: UIViewController, UIViewControllerPreviewingDelegate,
         }
     }
     
-    func printFonts() {
-        let fontFamilyNames = UIFont.familyNames
-        for familyName in fontFamilyNames {
-            print("------------------------------")
-            print("Font Family Name = [\(familyName)]")
-            let names = UIFont.fontNames(forFamilyName: familyName as! String)
-            print("Font Names = [\(names)]")
+    func jsonFromFileName(_ name: String) -> Any? {
+        if let path = Bundle.main.path(forResource: "test_config.json", ofType: nil) {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
+                do {
+                    return try JSONSerialization.jsonObject(with: data, options: [])
+                } catch {
+                    return nil
+                }
+            }
+        }
+        return nil
+    }
+
+    
+    func createSession() {
+        if let json = self.jsonFromFileName("test_config.json") as? [String:String] {
+             let username = "mparish91"
+            let password = "mi48203"
+            let clientID = "hJuhB5rF0G7xag"
+            let secret = "secret"
+                do {
+                    try OAuth2AppOnlyToken.getOAuth2AppOnlyToken(username: username, password: password, clientID: clientID, secret: secret, completion:({ (result) -> Void in
+                        switch result {
+                        case .failure: break
+                        case .success:
+                            if let token = result.value {
+                                let ng = Session(token: token)
+                                
+                                let delegate = UIApplication.shared.delegate as! AppDelegate
+                                delegate.session = ng
+                            }
+                        }
+                    }))
+                } catch { print(error) }
         }
     }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        printFonts()
-        
+        createSession()
+    
         print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
         //    bannerView.adUnitID = "ca-app-pub-8566181111069817/1103782288"
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
@@ -304,7 +344,7 @@ class FrontViewController: UIViewController, UIViewControllerPreviewingDelegate,
         
         
         //Nav Bar
-        let navString = "gifrecipes +"
+        let navString = "gif recipes"
         let navLabel = UILabel()
         navLabel.textColor = UIColor(netHex: 0x4A4A4A)
         navLabel.attributedText = returnNavTitleString(stringValue: navString)

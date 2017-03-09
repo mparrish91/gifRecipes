@@ -171,7 +171,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-gi-BCq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-gi-BCq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -198,13 +198,7 @@
                             <constraint firstItem="LSs-rj-Vjp" firstAttribute="top" secondItem="bb3-qH-xiF" secondAttribute="bottom" id="e5m-Xg-kWN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yT9-wC-SBl">
-                        <barButtonItem key="leftBarButtonItem" image="account" id="qWH-Ka-7Gx">
-                            <connections>
-                                <segue destination="Kr2-ce-ePv" kind="presentation" id="DcN-3C-KXR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="yT9-wC-SBl"/>
                     <connections>
                         <outlet property="bannerView" destination="bb3-qH-xiF" id="04t-GV-gc6"/>
                         <outlet property="tableView" destination="4Gz-gi-BCq" id="uA1-zJ-Bzc"/>
@@ -220,7 +214,7 @@
                 <navigationController id="zUy-Zq-7XP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Dsm-Wu-mZB"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N3i-cH-aKo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="N3i-cH-aKo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -241,7 +235,7 @@
             <objects>
                 <navigationController storyboardIdentifier="AccountListNavigationController" toolbarHidden="NO" id="Kr2-ce-ePv" sceneMemberID="viewController">
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WWf-y9-Mh5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WWf-y9-Mh5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -261,7 +255,7 @@
         <scene sceneID="vWx-8a-EJ2">
             <objects>
                 <navigationController storyboardIdentifier="TabSelectViewController" navigationBarHidden="YES" toolbarHidden="NO" id="5cG-kI-yjm" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0vs-Wd-8GR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0vs-Wd-8GR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -281,7 +275,7 @@
         <scene sceneID="m8d-n3-Lck">
             <objects>
                 <collectionViewController id="0P9-fB-Pkb" customClass="TabSelectViewController" customModule="application" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="g9Q-S3-jBr">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="g9Q-S3-jBr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hpI-Zk-DIn">

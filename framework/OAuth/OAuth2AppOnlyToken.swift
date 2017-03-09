@@ -70,7 +70,14 @@ public struct OAuth2AppOnlyToken: Token {
         var request = URLRequest(url:URL)
         do {
             try request.setRedditBasicAuthentication(username:clientID, password:secret)
-            let param = "grant_type=password&username=" + username + "&password=" + password
+//            let param = "grant_type=password&username=" + username + "&password=" + password
+            
+            
+            let deviceID = UIDevice.current.identifierForVendor!.uuidString
+            let param = "grant_type=https://oauth.reddit.com/grants/installed_client" + "&device_id=" + deviceID
+
+            
+            
             let data = param.data(using: .utf8)
             request.httpBody = data
             request.httpMethod = "POST"

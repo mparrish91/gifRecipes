@@ -15,6 +15,8 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
     var thumbnailViewHeightConstraint: NSLayoutConstraint?
     var thumbnailView: ImageLinkThumbnailView?
     
+    let titleLabel = UILabel()
+    
     func targetImageView(thumbnail: Thumbnail) -> UIImageView? {
         if let container = container as? LinkContainer, let thumbnailView = thumbnailView {
             if container.link.id == thumbnail.parentID {
@@ -81,6 +83,7 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
     override var container: LinkContainable? {
         didSet {
             if let container = container as? MediaLinkContainer {
+                titleLabel.attributedText = container.attributedTitle
                 titleTextView.attributedString = container.attributedTitle
                 contentInfoView.setNameText(name: container.link.author)
                 contentInfoView.setDateText(created: container.link.createdUtc)
@@ -133,6 +136,9 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
         self.contentView.addSubview(titleTextView)
         self.contentView.addSubview(contentInfoView)
         self.contentInfoView.isHidden = true
+        
+//        self.contentView.addSubview(titleLabel)
+
 
         self.contentView.addSubview(contentToolbar)
         self.contentToolbar.isHidden = true
@@ -199,7 +205,7 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
         self.thumbnailViewHeightConstraint = thumbnailViewHeightConstraint
         
         // [thumbnailView]-0-[contentInfoView]
-        self.contentView.addConstraint(NSLayoutConstraint(item: thumbnailView, attribute: .bottom, relatedBy: .equal, toItem: contentInfoView, attribute: .top, multiplier: 1, constant: 0))
+        self.contentView.addConstraint(NSLayoutConstraint(item: thumbnailView, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: -50))
         
         // [contentInfoView(==contentInfoViewHeight)]
         contentInfoView.addConstraint(NSLayoutConstraint(item: contentInfoView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: ContentInfoView.height))

@@ -596,6 +596,7 @@
 		14FD7E0F1E3C97BE00F4A7F9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD7E0D1E3C97BE00F4A7F9 /* LaunchScreen.xib */; };
 		14FD7E121E3C97CF00F4A7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14FD7E101E3C97CF00F4A7F9 /* Main.storyboard */; };
 		4225ED441E5E59C200F1F104 /* Bangla MN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4225ED431E5E59C200F1F104 /* Bangla MN.ttf */; };
+		422CFD801E70B0DB004DAA55 /* test_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 422CFD7F1E70B0DB004DAA55 /* test_config.json */; };
 		A35E8955ADE89723BAD3379C /* Pods_application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8CF23E1F7D68CE72353F73 /* Pods_application.framework */; };
 /* End PBXBuildFile section */
 
@@ -848,6 +849,7 @@
 		14FD7E111E3C97CF00F4A7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14FD7E131E3C981F00F4A7F9 /* application.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = application.entitlements; sourceTree = "<group>"; };
 		4225ED431E5E59C200F1F104 /* Bangla MN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bangla MN.ttf"; sourceTree = "<group>"; };
+		422CFD7F1E70B0DB004DAA55 /* test_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_config.json; sourceTree = "<group>"; };
 		5F8CF23E1F7D68CE72353F73 /* Pods_application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6748F93449B9BF67C9D4CB49 /* Pods-application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-application/Pods-application.debug.xcconfig"; sourceTree = "<group>"; };
 		BF086EDE886439CF2E5C8D78 /* Pods-application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-application.release.xcconfig"; path = "Pods/Target Support Files/Pods-application/Pods-application.release.xcconfig"; sourceTree = "<group>"; };
@@ -1116,6 +1118,7 @@
 				148532931E53701D00702442 /* UZTextView.framework */,
 				148532941E53701D00702442 /* YouTubeGetVideoInfoAPIParser.framework */,
 				14FD7E131E3C981F00F4A7F9 /* application.entitlements */,
+				422CFD7F1E70B0DB004DAA55 /* test_config.json */,
 				14FD7D631E3C940600F4A7F9 /* AppDelegate.swift */,
 				14FD7D621E3C940600F4A7F9 /* AccountListViewController.swift */,
 				14FD7D661E3C941900F4A7F9 /* BaseCommentCell.swift */,
@@ -1602,6 +1605,7 @@
 				14FD7DE71E3C944500F4A7F9 /* SubredditSelectViewController.storyboard in Resources */,
 				144B5B3F1E3C8FBA00C88DB9 /* Assets.xcassets in Resources */,
 				4225ED441E5E59C200F1F104 /* Bangla MN.ttf in Resources */,
+				422CFD801E70B0DB004DAA55 /* test_config.json in Resources */,
 				14FD7DB61E3C943400F4A7F9 /* reddift_config.json in Resources */,
 				14FD7E0F1E3C97BE00F4A7F9 /* LaunchScreen.xib in Resources */,
 				14FD7DAC1E3C943400F4A7F9 /* mona.ttf in Resources */,
